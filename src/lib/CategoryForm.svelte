@@ -23,7 +23,6 @@
         <input bind:value={categoryName} id="categoryName" class="input" type="text" placeholder="Enter category name" name="categoryName">
      </div>
     <div>
-
     </div>
     <div>
     <button class="button is-link">Create Category</button>
