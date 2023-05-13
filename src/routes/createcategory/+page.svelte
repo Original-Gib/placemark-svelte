@@ -1,7 +1,7 @@
 <script>
     import Header from '$lib/Header.svelte';
-    import PlacemarkForm from '$lib/PlacemarkForm.svelte';
     import MainNavigator from '$lib/MainNavigator.svelte';
+	import CategoryForm from '$lib/CategoryForm.svelte';
 </script>
 
 <Header>
@@ -13,7 +13,7 @@
         <img alt="Compass" src="/compass.png" width="300" />
     </div>
     <div class="column box has-text-centered">
-        <h1 class="title is-4">Add new Placemark!</h1>
-        <PlacemarkForm />
+        <h1 class="title is-4">Add new Category!</h1>
+        <CategoryForm />
     </div>
 </div>

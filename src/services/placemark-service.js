@@ -1,6 +1,8 @@
 // @ts-nocheck
 import axios from "axios";
 import { user } from "../stores";
+import { category } from "../stores";
+import { goto } from "$app/navigation";
 
 export const placemarkService = {
     baseUrl: "http://localhost:4000",
@@ -45,6 +47,57 @@ export const placemarkService = {
             return true;
         } catch (error) {
             return false;
+        }
+    },
+
+    async createCategory(categoryName){
+        try {
+            const categoryDetails = {
+                categoryName: categoryName
+            };
+            await axios.post(this.baseUrl + "/api/categories", categoryDetails);
+            return true;
+        } catch (error) {
+            return false;
+        }
+    },
+
+    async getCategories(){
+        try{
+            const response = await axios.get(this.baseUrl + "/api/categories");
+            if (response.data.success){
+                category.set({
+                    categoryName: categoryName,
+                    _id: _id
+                });
+            }
+            return response.data;
+        } catch (error){
+            return [];
+        }
+    },
+
+    async deleteCategory(categoryId){
+        const urlCategoryId = categoryId;
+        try{
+            console.log("Attempting to delete category with ID: " + urlCategoryId)
+            const response = await axios.delete(this.baseUrl + "/api/categories/" + urlCategoryId);
+            goto("/dashboard");
+            return response.status;
+        } catch (error){
+            console.log("Unable to delete category ID: " + urlCategoryId);
+        }
+    },
+
+    async getPlacemarks(categoryId){
+        const urlCategoryId = categoryId;
+        try{
+            console.log("attempting placemark fetch")
+            const response = await axios.get(this.baseUrl + "/api/categories/" + urlCategoryId);
+            console.log(response.data.placemarks);
+            return response.data.placemarks;
+        } catch (error){
+            return [];
         }
     },
 

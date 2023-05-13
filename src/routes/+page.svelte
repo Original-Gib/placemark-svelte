@@ -15,6 +15,6 @@
     </div>
     <div class="column">
         <h1 class="title">Welcome to Placemark</h1>
-        <p>Document and save your favourite places</p>
+        <p>Login or Sign Up</p>
     </div>
 </div>
