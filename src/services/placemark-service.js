@@ -89,6 +89,22 @@ export const placemarkService = {
         }
     },
 
+    async createPlacemark(categoryId, placemarkName, description, latitude, longitude){
+        const urlCategoryId = categoryId;
+        try {
+            const placemarkDetails = {
+                placemarkName: placemarkName,
+                description: description,
+                latitude: latitude,
+                longitude: longitude
+            };
+            await axios.post(this.baseUrl + "/api/categories/" + urlCategoryId + "/placemarks", placemarkDetails);
+            return true;
+        } catch (error) {
+            return false;
+        }
+    },
+
     async getPlacemarks(categoryId){
         const urlCategoryId = categoryId;
         try{
@@ -98,6 +114,17 @@ export const placemarkService = {
             return response.data.placemarks;
         } catch (error){
             return [];
+        }
+    },
+
+    async deletePlacemark(placemarkId){
+        const urlPlacemarkId = placemarkId;
+        try{
+            console.log("Attempting to delete placemark with ID: " + urlPlacemarkId)
+            const response = await axios.delete(this.baseUrl + "/api/placemarks/" + urlPlacemarkId);
+            return response.status;
+        } catch (error){
+            console.log("Unable to delete placemark ID: " + urlPlacemarkId);
         }
     },
 

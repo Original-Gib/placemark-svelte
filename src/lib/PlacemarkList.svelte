@@ -23,12 +23,12 @@
                     {placemark.placemarkName}
                 </td>
                 <td>
-                  <a href="/placemark" class="button">
+                  <a href="/category/{categoryId}/placemark/{placemark._id}" class="button">
                       <span class="icon is-small">
                         <i class="fas fa-folder-open"></i>
                   </span>
                   </a>
-                  <a href="/dashboard/deletecategory" class="button">
+                  <a href="/category/{categoryId}/deleteplacemark/{placemark._id}" class="button">
                       <i class="fas fa-trash"></i>
                     </a>
                 </td>
