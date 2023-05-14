@@ -26,7 +26,8 @@
         if ("cloudinary" in window){
             widget = window.cloudinary.createUploadWidget({
                 cloudName: "dhwut9fbv",
-                uploadPreset: "gk5i7qmj"
+                uploadPreset: "gk5i7qmj",
+                tags: ['Placemarks']
             }, (error, result) => {
                 if (result.event === "success"){
                     placemark = {

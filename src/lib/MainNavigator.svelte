@@ -8,6 +8,9 @@
     <a href="/map" class="column">
         <i class="fas fa-map-marked-alt fa-3x" style="color:rgb(102, 153, 255)" />
     </a>
+    <a href="/gallery" class="column">
+        <i class="fas fa-image fa-3x" style="color:rgb(198, 135, 229)" />
+    </a>
     <a href="/logout" class="column">
         <i class="fas fa-sign-out-alt fa-3x" style="color:rgb(156, 70, 128)" />
     </a>
