@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import { placemarkService } from "../services/placemark-service";
-  import { category } from "../stores";
+  
 
  
 

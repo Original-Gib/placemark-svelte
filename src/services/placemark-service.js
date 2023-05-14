@@ -117,6 +117,38 @@ export const placemarkService = {
         }
     },
 
+    async getPlacemark(placemarkId){ 
+        const urlPlacemarkId = placemarkId;
+        try {
+            console.log("Attempting to fetch info for placemark id: " + placemarkId);
+            const response = await axios.get(this.baseUrl + "/api/placemarks/" + placemarkId);
+            // console.log(response.data);
+            return response.data;
+        } catch (error){ 
+            console.log("unable to fetch info for placemark Id: " + placemarkId);
+        }
+    },
+
+    async uploadImage(placemark){
+        const urlPlacemarkId = placemark._id;
+        try { 
+            console.log("attempting uplaod of image");
+            const imagePlacemark = {
+                _id: placemark._id,
+                placemarkName: placemark.placemarkName,
+                description: placemark.description,
+                latitude: placemark.latitude,
+                longitude: placemark.longitude,
+                img: placemark.img
+            };
+            const respose = await axios.patch(this.baseUrl + "/api/placemarks/" + urlPlacemarkId + "/uploadimage", imagePlacemark)
+            console.log(response.data);
+            return respose.data;
+        } catch (error){
+            console.log(error);
+        }
+    },
+
     async deletePlacemark(placemarkId){
         const urlPlacemarkId = placemarkId;
         try{
