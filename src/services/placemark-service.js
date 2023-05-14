@@ -117,6 +117,15 @@ export const placemarkService = {
         }
     },
 
+    async getAllPlacemarks(){
+        try{
+            const response = await axios.get(this.baseUrl + "/api/placemarks")
+            return response.data;
+        } catch (error){
+            console.log(error);
+        }
+    },
+
     async getPlacemark(placemarkId){ 
         const urlPlacemarkId = placemarkId;
         try {

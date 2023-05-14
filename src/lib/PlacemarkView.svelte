@@ -17,6 +17,18 @@
     onMount(async () => {
         placemark = await placemarkService.getPlacemark(placemarkId);
     });
+
+    function deleteImage(){
+        placemark = {
+          _id: placemark._id,
+          placemarkName: placemark.placemarkName,
+          description: placemark.description,
+          latitude: placemark.latitude,
+          longitude: placemark.longitude,
+          img: ""
+        };
+        placemarkService.uploadImage(placemark);
+    }
   </script>
 
 <section class="section columns is-vcentered">
@@ -60,6 +72,7 @@
         </div>
      </div>
      <UploadWidget />
+     <button on:click|preventDefault={deleteImage} class="button is-danger">Delete Image</button>
  </div>
  
 </section>

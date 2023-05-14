@@ -2,6 +2,8 @@
     import { onMount } from "svelte";
     import { placemarkService } from "../services/placemark-service";
     import { page } from "$app/stores";
+    
+    
 
     let widget;
 
