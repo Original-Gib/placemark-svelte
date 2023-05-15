@@ -2,6 +2,14 @@
 // @ts-nocheck
 import * as L from "leaflet";
 
+export var OpenWeatherMap_Clouds = L.tileLayer('http://{s}.tile.openweathermap.org/map/clouds/{z}/{x}/{y}.png?appid={apiKey}', {
+    maxZoom: 19,
+    attribution: 'Map data &copy; <a href="http://openweathermap.org">OpenWeatherMap</a>',
+    apiKey: '5416c905f10d94676e8dccc6866f5311',
+    opacity: 0.5
+});
+
+
 export class LeafletMap {
     imap = {};
     control = {};
@@ -17,8 +25,9 @@ export class LeafletMap {
         }),
         Satellite: L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", {
             attribution: "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community"
-        })
+        }),
     };
+
 
     constructor(id, descriptor, activeLayer = "") {
         let defaultLayer = this.baseLayers.Terrain;

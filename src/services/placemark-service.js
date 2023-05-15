@@ -30,7 +30,7 @@ export const placemarkService = {
         user.set({
             email: "",
             token: "",
-          });
+        });
         axios.defaults.headers.common["Authorization"] = "";
         localStorage.removeItem("placemark");
     },
@@ -50,7 +50,7 @@ export const placemarkService = {
         }
     },
 
-    async createCategory(categoryName){
+    async createCategory(categoryName) {
         try {
             const categoryDetails = {
                 categoryName: categoryName
@@ -62,34 +62,34 @@ export const placemarkService = {
         }
     },
 
-    async getCategories(){
-        try{
+    async getCategories() {
+        try {
             const response = await axios.get(this.baseUrl + "/api/categories");
-            if (response.data.success){
+            if (response.data.success) {
                 category.set({
                     categoryName: categoryName,
                     _id: _id
                 });
             }
             return response.data;
-        } catch (error){
+        } catch (error) {
             return [];
         }
     },
 
-    async deleteCategory(categoryId){
+    async deleteCategory(categoryId) {
         const urlCategoryId = categoryId;
-        try{
+        try {
             console.log("Attempting to delete category with ID: " + urlCategoryId)
             const response = await axios.delete(this.baseUrl + "/api/categories/" + urlCategoryId);
             goto("/dashboard");
             return response.status;
-        } catch (error){
+        } catch (error) {
             console.log("Unable to delete category ID: " + urlCategoryId);
         }
     },
 
-    async createPlacemark(categoryId, placemarkName, description, latitude, longitude){
+    async createPlacemark(categoryId, placemarkName, description, latitude, longitude) {
         const urlCategoryId = categoryId;
         try {
             const placemarkDetails = {
@@ -105,42 +105,42 @@ export const placemarkService = {
         }
     },
 
-    async getPlacemarks(categoryId){
+    async getPlacemarks(categoryId) {
         const urlCategoryId = categoryId;
-        try{
+        try {
             console.log("attempting placemark fetch")
             const response = await axios.get(this.baseUrl + "/api/categories/" + urlCategoryId);
             console.log(response.data.placemarks);
             return response.data.placemarks;
-        } catch (error){
+        } catch (error) {
             return [];
         }
     },
 
-    async getAllPlacemarks(){
-        try{
+    async getAllPlacemarks() {
+        try {
             const response = await axios.get(this.baseUrl + "/api/placemarks")
             return response.data;
-        } catch (error){
+        } catch (error) {
             console.log(error);
         }
     },
 
-    async getPlacemark(placemarkId){ 
+    async getPlacemark(placemarkId) {
         const urlPlacemarkId = placemarkId;
         try {
             console.log("Attempting to fetch info for placemark id: " + placemarkId);
             const response = await axios.get(this.baseUrl + "/api/placemarks/" + placemarkId);
             // console.log(response.data);
             return response.data;
-        } catch (error){ 
+        } catch (error) {
             console.log("unable to fetch info for placemark Id: " + placemarkId);
         }
     },
 
-    async uploadImage(placemark){
+    async uploadImage(placemark) {
         const urlPlacemarkId = placemark._id;
-        try { 
+        try {
             console.log("attempting uplaod of image");
             const imagePlacemark = {
                 _id: placemark._id,
@@ -153,18 +153,18 @@ export const placemarkService = {
             const respose = await axios.patch(this.baseUrl + "/api/placemarks/" + urlPlacemarkId + "/uploadimage", imagePlacemark)
             console.log(response.data);
             return respose.data;
-        } catch (error){
+        } catch (error) {
             console.log(error);
         }
     },
 
-    async deletePlacemark(placemarkId){
+    async deletePlacemark(placemarkId) {
         const urlPlacemarkId = placemarkId;
-        try{
+        try {
             console.log("Attempting to delete placemark with ID: " + urlPlacemarkId)
             const response = await axios.delete(this.baseUrl + "/api/placemarks/" + urlPlacemarkId);
             return response.status;
-        } catch (error){
+        } catch (error) {
             console.log("Unable to delete placemark ID: " + urlPlacemarkId);
         }
     },

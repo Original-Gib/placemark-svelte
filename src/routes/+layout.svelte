@@ -1,12 +1,12 @@
 <script>
-    import { beforeUpdate } from "svelte";
-    import { placemarkService } from "../services/placemark-service";
+	import { beforeUpdate } from 'svelte';
+	import { placemarkService } from '../services/placemark-service';
 
-    beforeUpdate(() => {
-        placemarkService.reload();
-    });
+	beforeUpdate(() => {
+		placemarkService.reload();
+	});
 </script>
 
 <div class="container">
-    <slot />
+	<slot />
 </div>
