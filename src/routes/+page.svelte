@@ -1,12 +1,15 @@
 <script>
+	//imports
 	import Header from '$lib/Header.svelte';
 	import WelcomeNavigator from '$lib/WelcomeNavigator.svelte';
 </script>
 
+<!-- header fpr the welcome navigator -->
 <Header>
 	<WelcomeNavigator />
 </Header>
 
+<!-- div to contain the main welcome page content -->
 <div class="columns is-vcentered content">
 	<div class="column has-text-centered">
 		<figure class="image">

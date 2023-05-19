@@ -1,11 +1,14 @@
 <script>
+	//imports
 	import { onMount } from 'svelte';
 	import { placemarkService } from '../services/placemark-service';
 	import { page } from '$app/stores';
 	import UploadWidget from './UploadWidget.svelte';
 
+	//variable to get the placemark ID from the URL
 	const placemarkId = $page.params.placemarkId;
 
+	// defining the placemark object
 	let placemark = {
 		_id: '',
 		placemarkName: '',
@@ -14,10 +17,13 @@
 		longitude: '',
 		img: ''
 	};
+
+	//on mount to call the get placemark function using the placemark ID to return details of the placemark
 	onMount(async () => {
 		placemark = await placemarkService.getPlacemark(placemarkId);
 	});
 
+	// function to delete an image from the placemark
 	function deleteImage() {
 		placemark = {
 			_id: placemark._id,
@@ -31,6 +37,7 @@
 	}
 </script>
 
+<!-- Section to display the placemark information -->
 <section class="section columns is-vcentered">
 	<div class="column has-text-centered">
 		<table class="table is-fullwidth">
@@ -69,6 +76,8 @@
 				</figure>
 			</div>
 		</div>
+
+		<!-- importing the upload widget into the placemark view  -->
 		<UploadWidget />
 		<button on:click|preventDefault={deleteImage} class="button is-danger">Delete Image</button>
 	</div>

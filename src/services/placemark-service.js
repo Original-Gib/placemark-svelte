@@ -1,12 +1,17 @@
+
+//imports
 // @ts-nocheck
 import axios from "axios";
 import { user } from "../stores";
 import { category } from "../stores";
 import { goto } from "$app/navigation";
 
+//declaring the placemark service export
 export const placemarkService = {
-    baseUrl: "http://localhost:4000",
+    //defining the base url for the api calls 
+    baseUrl: "https://placemark-api.onrender.com",
 
+    //function to log the user in
     async login(email, password) {
         try {
             const response = await axios.post(`${this.baseUrl}/api/users/authenticate`, { email, password });
@@ -26,6 +31,7 @@ export const placemarkService = {
         }
     },
 
+    //function to log the user out
     async logout() {
         user.set({
             email: "",
@@ -35,6 +41,7 @@ export const placemarkService = {
         localStorage.removeItem("placemark");
     },
 
+    //function to signup the user
     async signup(firstName, lastName, email, password) {
         try {
             const userDetails = {
@@ -50,6 +57,7 @@ export const placemarkService = {
         }
     },
 
+    //function to create a category
     async createCategory(categoryName) {
         try {
             const categoryDetails = {
@@ -62,6 +70,7 @@ export const placemarkService = {
         }
     },
 
+    //function to get all categories
     async getCategories() {
         try {
             const response = await axios.get(this.baseUrl + "/api/categories");
@@ -77,6 +86,7 @@ export const placemarkService = {
         }
     },
 
+    //function to delete a category
     async deleteCategory(categoryId) {
         const urlCategoryId = categoryId;
         try {
@@ -89,6 +99,7 @@ export const placemarkService = {
         }
     },
 
+    //function to create a placemark
     async createPlacemark(categoryId, placemarkName, description, latitude, longitude) {
         const urlCategoryId = categoryId;
         try {
@@ -105,6 +116,7 @@ export const placemarkService = {
         }
     },
 
+    //function to get placemarks for a category
     async getPlacemarks(categoryId) {
         const urlCategoryId = categoryId;
         try {
@@ -117,6 +129,7 @@ export const placemarkService = {
         }
     },
 
+    //function to get all placemarks
     async getAllPlacemarks() {
         try {
             const response = await axios.get(this.baseUrl + "/api/placemarks")
@@ -126,6 +139,7 @@ export const placemarkService = {
         }
     },
 
+    //function to get a placemark by its ID
     async getPlacemark(placemarkId) {
         const urlPlacemarkId = placemarkId;
         try {
@@ -138,6 +152,7 @@ export const placemarkService = {
         }
     },
 
+    //function to upload an image
     async uploadImage(placemark) {
         const urlPlacemarkId = placemark._id;
         try {
@@ -158,6 +173,7 @@ export const placemarkService = {
         }
     },
 
+    //function to delete a placemark
     async deletePlacemark(placemarkId) {
         const urlPlacemarkId = placemarkId;
         try {
@@ -169,6 +185,7 @@ export const placemarkService = {
         }
     },
 
+    //function to keep the user details set if the page is refreshed 
     reload() {
         const placemarkCredentials = localStorage.placemark;
         if (placemarkCredentials) {

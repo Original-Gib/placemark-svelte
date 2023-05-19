@@ -1,10 +1,13 @@
 <script lang="ts">
+	//Imports
 	import { goto } from '$app/navigation';
 	import { placemarkService } from '../services/placemark-service';
 
+	//Defining variables needed
 	let categoryName = '';
 	let errorMessage = '';
 
+	//create category function which uses placemark service to make the api call
 	async function createcategory() {
 		console.log(`attemting to create up category: ${categoryName}`);
 		let success = await placemarkService.createCategory(categoryName);
@@ -16,6 +19,7 @@
 	}
 </script>
 
+<!-- form for category creation -->
 <form on:submit|preventDefault={createcategory}>
 	<div class="field is-horizontal">
 		<div class="field-body">

@@ -1,13 +1,16 @@
 <script lang="ts">
+	//imports
 	import { goto } from '$app/navigation';
 	import { placemarkService } from '../services/placemark-service';
 
+	// defining variables used for signup
 	let firstName = '';
 	let lastName = '';
 	let email = '';
 	let password = '';
 	let errorMessage = '';
 
+	//sign up function to send the entered details to the API
 	async function signup() {
 		console.log(`attemting to sign up email: ${email}`);
 		let success = await placemarkService.signup(firstName, lastName, email, password);
@@ -19,6 +22,7 @@
 	}
 </script>
 
+<!-- form for entering signup details  -->
 <form on:submit|preventDefault={signup}>
 	<div class="field is-horizontal">
 		<div class="field-body">

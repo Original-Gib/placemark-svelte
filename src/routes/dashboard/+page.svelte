@@ -1,4 +1,5 @@
 <script>
+	//imports
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 	import Header from '$lib/Header.svelte';
@@ -6,10 +7,12 @@
 	import MainNavigator from '$lib/MainNavigator.svelte';
 </script>
 
+<!-- header to contain the main navigation -->
 <Header>
 	<MainNavigator />
 </Header>
 
+<!-- div to contain the category list components  -->
 <div class="columns">
 	<div class="column has-text-centered">
 		<img alt="London Bridge" src="/london.png" width="400" />

@@ -1,4 +1,5 @@
 <script>
+	//imports
 	import { beforeUpdate } from 'svelte';
 	import { placemarkService } from '../services/placemark-service';
 
@@ -7,6 +8,7 @@
 	});
 </script>
 
+<!-- slot to load each page content -->
 <div class="container">
 	<slot />
 </div>

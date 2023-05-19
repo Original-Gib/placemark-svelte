@@ -1,9 +1,11 @@
 <script>
+	//imports
 	import { user } from '../stores';
 	export let title = '';
 	export let subTitle = '';
 </script>
 
+<!-- Div to contain the main title bar for the page -->
 <div class="box has-text-centered columns m-2">
 	<div class="column">
 		<i class="fas fa-map-pin fa-3x" style="color:rgb(95, 96, 173)" />

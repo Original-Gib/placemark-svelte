@@ -1,11 +1,14 @@
 <script>
+	// imports
 	import { goto } from '$app/navigation';
 	import { placemarkService } from '../services/placemark-service';
 
+	//definind variables used
 	let email = '';
 	let password = '';
 	let errorMessage = '';
 
+	// login function passes the details from the form into the login function in placemark service
 	async function login() {
 		console.log(`attemting to log in email: ${email} with password: ${password}`);
 		let success = await placemarkService.login(email, password);
@@ -19,6 +22,7 @@
 	}
 </script>
 
+<!-- form for logging in -->
 <form on:submit|preventDefault={login}>
 	<div class="field">
 		<label class="label" for="email">Email</label>

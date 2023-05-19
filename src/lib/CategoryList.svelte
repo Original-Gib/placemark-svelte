@@ -1,13 +1,18 @@
 <script>
+	// imports
 	import { onMount } from 'svelte';
 	import { placemarkService } from '../services/placemark-service';
 
+	// defining array variable for the category list
 	let categoryList = [];
+
+	// on mount function which adds data to the category list via the getCategories function in placemark service
 	onMount(async () => {
 		categoryList = await placemarkService.getCategories();
 	});
 </script>
 
+<!-- table to display the list of categories -->
 <table class="table is-fullwidth is-hoverable">
 	<thead>
 		<th>Name</th>

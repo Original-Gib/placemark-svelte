@@ -1,8 +1,10 @@
 <script lang="ts">
+	//imports
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 	import { placemarkService } from '../services/placemark-service';
 
+	//defining variables
 	let placemarkName = '';
 	let description = '';
 	let latitude = '';
@@ -10,6 +12,7 @@
 	let errorMessage = '';
 	let categoryId = $page.params.categoryId;
 
+	//function which uses the create placemark function from the placemark service file to create a new placemark based on the data entered into it
 	async function createplacemark() {
 		console.log(`attempting to create placemark: ${placemarkName}`);
 		let success = await placemarkService.createPlacemark(
@@ -27,6 +30,7 @@
 	}
 </script>
 
+<!-- form to enter the placemark details  -->
 <form class="box" on:submit|preventDefault={createplacemark}>
 	<h1>Enter Placemark Details:</h1>
 	<div class="field is-horizontal">

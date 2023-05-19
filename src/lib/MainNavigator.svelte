@@ -1,3 +1,4 @@
+<!-- div to contain the main navigation menu. This menu is visible only to logged in users  -->
 <div class="box has-text-centered columns m-2">
 	<a href="/createcategory" class="column">
 		<i class="fas fa-plus fa-3x" style="color:rgb(153, 196, 74)" />
