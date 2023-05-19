@@ -33,8 +33,8 @@
 		if ('cloudinary' in window) {
 			widget = window.cloudinary.createUploadWidget(
 				{
-					cloudName: PUBLIC_CLOUDNAME,
-					uploadPreset: PUBLIC_UPLOADPRESET,
+					cloudName: 'dhwut9fbv',
+					uploadPreset: 'gk5i7qmj',
 					tags: ['Placemarks']
 				},
 				(error, result) => {

@@ -1,7 +1,6 @@
 <script>
 	//imports
 	import { onMount } from 'svelte';
-	import { PUBLIC_CLOUDNAME } from '$env/static/public';
 
 	// defining the gallery variable
 	let myGallery;
@@ -10,7 +9,7 @@
 	onMount(async () => {
 		myGallery = cloudinary.galleryWidget({
 			container: '#my-gallery',
-			cloudName: PUBLIC_CLOUDNAME,
+			cloudName: 'dhwut9fbv',
 			mediaAssets: [{ tag: 'Placemarks' }]
 		});
 

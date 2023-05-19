@@ -20,7 +20,7 @@
 		{
 			maxZoom: 19,
 			attribution: 'Map data &copy; <a href="http://openweathermap.org">OpenWeatherMap</a>',
-			apiKey: PUBLIC_OPEN_WEATHER_API_KEY,
+			apiKey: '5416c905f10d94676e8dccc6866f5311',
 			opacity: 0.5
 		}
 	);
@@ -30,7 +30,7 @@
 		{
 			maxZoom: 19,
 			attribution: 'Map data &copy; <a href="http://openweathermap.org">OpenWeatherMap</a>',
-			apiKey: PUBLIC_OPEN_WEATHER_API_KEY,
+			apiKey: '5416c905f10d94676e8dccc6866f5311',
 			opacity: 0.5,
 			showLegend: true
 		}
@@ -41,7 +41,7 @@
 		{
 			maxZoom: 19,
 			attribution: 'Map data &copy; <a href="http://openweathermap.org">OpenWeatherMap</a>',
-			apiKey: PUBLIC_OPEN_WEATHER_API_KEY,
+			apiKey: '5416c905f10d94676e8dccc6866f5311',
 			opacity: 0.5
 		}
 	);
@@ -52,7 +52,7 @@
 		{
 			maxZoom: 19,
 			attribution: 'Map data &copy; <a href="http://openweathermap.org">OpenWeatherMap</a>',
-			apiKey: PUBLIC_OPEN_WEATHER_API_KEY,
+			apiKey: '5416c905f10d94676e8dccc6866f5311',
 			opacity: 0.5
 		}
 	);
